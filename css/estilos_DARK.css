@@ -1,0 +1,160 @@
+:root {
+  --DARK_fondo-texto-negro: rgb(9, 51, 85);
+  --DARK_fondo-texto-blanco: #eff3f5;
+  --DARK_fondo-negro-dark: #000000;
+  /*menu*/
+  --DARK_a-hover: #1f303d;
+  --DARK_a-color: #eeeeee;
+  /*seccion perfil*/
+  --DARK_section: rgb(0, 5, 5);
+  --DARK_section2: rgb(1, 10, 12);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+.dark .encabezado {
+  background: var(--DARK_fondo-negro-dark);
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  padding: 0 60px;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  /* height: 80px; */
+  z-index: 999;
+  box-shadow: 1px 1px 4px rgba(189, 247, 255, 0.137);
+}
+
+.dark .modo span {
+  color: rgb(233, 178,);
+}
+.dark .icono_menu {
+  color: rgb(255, 255, 255);
+}
+.dark .menu__item {
+  padding: 23px 25px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: var(--DARK_a-color);
+  font: 1rem;
+}
+.dark .menu__item:hover {
+  background: var(--DARK_a-hover);
+}
+/* PERFIL DESCRIPCION - FOTO PERFIL */
+
+.dark .perfil__descripcion__nombre {
+  color: #ffffff;
+}
+.dark .perfil__descripcion__profesion {
+  color: #dad6d6;
+}
+.dark .perfil__descripcion__resumen {
+  color: #cecece;
+}
+.dark details summary{
+  width: 100%;
+  background: rgba(255, 255, 255, 0.176);
+  cursor: pointer;
+  color: white;
+  padding-left: 20px;
+  font-weight: normal;
+  outline: none;
+}
+.dark .telef {
+  color: #cecece;
+}
+.dark .perfil__descripcion__resumen a {
+  color: rgb(255, 255, 255);
+}
+
+/* ************************** */
+.dark .perfil {
+  background: var(--DARK_section);
+}
+
+/* TECNOLOGIA */
+
+.dark .tecnologia {
+  background: var(--DARK_section2);
+}
+.dark h2.titulo {
+  color: var(--DARK_fondo-texto-blanco);
+}
+
+/* TRABAJO */
+.dark .trabajo {
+  background: var(--DARK_section);
+}
+
+/* certificados */
+.dark #certificados {
+  background: var(--DARK_section2);
+}
+
+
+/* CONTACTO */
+.dark .contacto {
+  background: var(--DARK_section);
+}
+.dark .formulario {
+  background: var(--DARK_section2);
+}
+.dark .formulario__email input {
+  background: rgb(221, 240, 247);
+  color: rgb(12, 35, 54);
+}
+.dark .formulario__email input::placeholder {
+  color: rgb(34, 97, 139);
+}
+.dark .formulario__name textarea::placeholder {
+  color: rgb(34, 97, 139);
+}
+.dark .formulario__name textarea {
+  background: rgb(221, 240, 247);
+  color: rgb(12, 35, 54);
+}
+.dark .formulario__button button {
+  background: rgb(36, 144, 151);
+  color: white;
+}
+.dark .formulario__button button:hover {
+  background: rgb(22, 105, 110);
+}
+/* FOOTER */
+.dark .footer {
+  background: #000000;
+  padding: 20px;
+}
+.dark .footer__div div {
+  border: solid rgb(53, 52, 52) 2px;
+}
+.dark .todo {
+  background: rgba(255, 255, 255, 0.096);
+}
+.dark .todo__link{
+  color: rgb(255, 208, 0);
+}
+@media screen and (max-width: 990px) {
+  .dark .encabezado {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .dark .menu__item {
+    padding: 15px 25px;
+  }
+}
+
+@media screen and (max-width: 470px) {
+  .dark .encabezado {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+}
