@@ -1,0 +1,2 @@
+/* Este archivo ha sido eliminado o su contenido vaciado porque su funcionalidad
+   ha sido reemplazada por Vue.js y CSS. */

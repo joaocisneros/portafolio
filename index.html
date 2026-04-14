@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joao Cisneros | Portafolio Profesional</title>
+    <meta name="description" content="Portafolio profesional de Joao Cisneros Maldonado - Especialista en Desarrollo Web y Soporte TI.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+    <meta name="theme-color" content="#0d1117" />
+    <link rel="shortcut icon" type="image/png" href="img/logo01.jpg">
+    <link rel="manifest" href="./manifest.json">
+
+    <link rel="stylesheet" href="css/estilos.css">
+    <script src="https://kit.fontawesome.com/03a89292db.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<body>
+  <div id="app">
+    <!-- Contenedor principal con clase dinámica para Modo Oscuro -->
+    <div :class="['main-wrapper', { 'dark': isDarkMode }]">
+      <header>
+        <nav class="navbar">
+          <a href="#hero-section" class="brand" @click="menuActive = false">
+            <img src="img/logo01.jpg" alt="Logo" class="logo" width="40">
+          </a>
+          <div class="nav-controls">
+            <div class="modo-toggle" @click="isDarkMode = !isDarkMode">
+              <i :class="isDarkMode ? 'fas fa-sun' : 'fas fa-moon'"></i>
+            </div>
+            <div class="icono_menu" @click="menuActive = !menuActive">
+              <i :class="menuActive ? 'fas fa-times' : 'fas fa-bars'"></i>
+            </div>
+          </div>
+          <ul class="menu" :class="{ 'menu__show': menuActive }">
+            <li><a class="menu__item" :class="{ 'activo': activeSection === 'hero-section' }" href="#hero-section" @click="menuActive = false"><span>Inicio</span></a></li>
+            <li><a class="menu__item" :class="{ 'activo': activeSection === 'sobre-mi' }" href="#sobre-mi" @click="menuActive = false"><span>Sobre Mí</span></a></li>
+            <li><a class="menu__item" :class="{ 'activo': activeSection === 'trayectoria' }" href="#trayectoria" @click="menuActive = false"><span>Trayectoria</span></a></li>
+            <li><a class="menu__item" :class="{ 'activo': activeSection === 'tecnologias-section' }" href="#tecnologias-section" @click="menuActive = false"><span>Habilidades</span></a></li>
+            <li><a class="menu__item" :class="{ 'activo': activeSection === 'servicios-section' }" href="#servicios-section" @click="menuActive = false"><span>Soporte</span></a></li>
+            <li><a class="menu__item" :class="{ 'activo': activeSection === 'proyectos-section' }" href="#proyectos-section" @click="menuActive = false"><span>Portafolio</span></a></li>
+            <li><a class="menu__item" :class="{ 'activo': activeSection === 'certificados-section' }" href="#certificados-section" @click="menuActive = false"><span>Certificados</span></a></li>
+            <li><a class="menu__item" :class="{ 'activo': activeSection === 'contacto-section' }" href="#contacto-section" @click="menuActive = false"><span>Contacto</span></a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <main class="contenedor-global">
+        <section id="hero-section" class="main animate__animated animate__fadeIn">
+          <div class="info-content">
+              <h1>Joao Cisneros Maldonado</h1>
+              <h2><span>Ingeniero de Sistemas</span></h2>
+              <section>
+                <strong>Profesional Técnico en Computación e Informática</strong><br>
+                Técnico Titulado en Computación e Informática y Egresado de Ingeniería de Sistemas por La Pontificia. Especialista en gestión de datos y seguridad de la información, con trayectoria optimizando procesos tecnológicos y garantizando la integridad digital. Soy un profesional autodidacta, apasionado por la innovación y la resolución de problemas complejos.
+              </section>
+              <div class="more animate__animated animate__fadeInUp animate__delay-1s">
+                <a href="CV/curriculum-Joaocisnerosmaldonado_Actual.pdf" 
+                   class="more__download" 
+                   download="CV_Joao_Cisneros_Maldonado.pdf" 
+                   @click.prevent="handleDownloadCV($event)"
+                   :style="{ pointerEvents: isDownloading ? 'none' : 'auto' }">
+                  <template v-if="!isDownloading">
+                    <span>Descargar CV</span> <i class="fas fa-download"></i>
+                  </template>
+                  <template v-else>
+                    <span>Preparando...</span> <i class="fas fa-circle-notch fa-spin"></i>
+                  </template>
+                </a>
+                <a target="_blank" href="https://wa.me/51921676408?text=Hola%20Joao,%20he%20visto%20tu%20portafolio%20y%20me%20gustaría%20contactarte." class="telef"><i class="fab fa-whatsapp"></i> +51 921676408</a>
+              </div>
+          </div>
+          <img src="img/foto.png" alt="Joao Cisneros">
+        </section>
+
+        <section id="sobre-mi" class="portfolio">
+          <div class="portfolio-heading">
+            <h2 class="titulo">SOBRE MÍ</h2>
+            <div class="divider"></div>
+          </div>
+          <div class="sobre-mi-grid wrapper animate__animated animate__fadeIn">
+            <div class="sobre-mi-info">
+              <p>
+                Especialista con formación técnica sólida y perfil de Ingeniero, enfocado en la administración eficiente de servicios tecnológicos y el blindaje de la seguridad de la información empresarial. Mi experiencia se sustenta en la modernización de infraestructuras digitales y la implementación de soluciones de soporte de alto nivel que impulsan la continuidad operativa.
+              </p>
+              <p style="margin-top: 15px;">
+                Como egresado de <strong>Ingeniería de Sistemas de Información</strong>, integro una visión arquitectónica estratégica con una ejecución técnica precisa. Destaco por mi capacidad de autoaprendizaje continuo en nuevas tecnologías y mi compromiso con la excelencia operativa, siempre alineado a los objetivos estratégicos de la organización.
+              </p>
+            </div>
+            <div class="sobre-mi-idiomas">
+              <div v-for="idioma in idiomas" :key="idioma.nombre" class="idioma-card">
+                <i :class="idioma.icono"></i>
+                <div class="idioma-info-wrapper">
+                  <div class="idioma-text">
+                    <h4>{{ idioma.nombre }}</h4>
+                    <span>{{ idioma.nivel }}</span>
+                  </div>
+                  <div class="idioma-progress">
+                    <div class="idioma-progress-fill" :style="{ width: idioma.porcentaje + '%' }"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="trayectoria" class="portfolio">
+          <div class="portfolio-heading">
+            <h2 class="titulo">TRAYECTORIA</h2>
+            <div class="divider"></div>
+          </div>
+          <div class="timeline-container wrapper animate__animated animate__fadeIn">
+            <div class="timeline-column">
+              <h3 class="timeline-title"><i class="fas fa-briefcase"></i> Experiencia Laboral</h3>
+              <div class="timeline">
+                <div v-for="item in experiencia" :key="item.empresa" class="timeline-item">
+                  <div class="timeline-dot"></div>
+                  <div class="timeline-content">
+                    <span class="timeline-date">{{ item.periodo }}</span>
+                    <h4>{{ item.cargo }}</h4>
+                    <h5>{{ item.empresa }}</h5>
+                    <p>{{ item.desc }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="timeline-column">
+              <h3 class="timeline-title"><i class="fas fa-graduation-cap"></i> Formación Académica</h3>
+              <div class="timeline">
+                <div v-for="(item, index) in formacion" :key="item.institucion" class="timeline-item">
+                  <div class="timeline-dot academic"></div>
+                  <div class="timeline-content">
+                    <span class="timeline-date">{{ item.periodo }}</span>
+                    <h4>{{ item.titulo }}</h4>
+                    <h5>{{ item.institucion }}</h5>
+                    <p>{{ item.estado }}</p>
+                    <button v-if="item.img" class="btn-view-cert" @click="openModal(index, formacion)">
+                      <i class="fas fa-certificate"></i> Ver Certificado
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="tecnologias-section" class="portfolio">
+          <span class="section-number"></span>
+          <div class="portfolio-heading">
+            <h2 class="titulo">TECNOLOGIAS</h2>
+            <div class="divider"></div>
+          </div>
+          <div class="trabajo__grupo wrapper">
+            <div v-for="tech in tecnologias" :key="tech.nombre" class="tecnologia__div animate__animated animate__zoomIn">
+              <img :src="tech.img" :alt="tech.nombre" class="tech" loading="lazy">
+              <div class="tecnologia__name">{{ tech.nombre }}</div>
+            </div>
+          </div>
+        </section>
+
+        <section id="servicios-section" class="portfolio">
+          <div class="portfolio-heading">
+            <h2 class="titulo">MARKETING DIGITAL - SOPORTE</h2>
+            <div class="divider"></div>
+          </div>
+          <div class="trabajo__grupo wrapper">
+            <article v-for="serv in servicios" :key="serv.titulo" class="service-card-modern animate__animated animate__fadeIn">
+              <div class="service-img-container">
+                <img :src="serv.img" :alt="serv.titulo" loading="lazy">
+              </div>
+              <div class="service-content">
+                <h4>{{ serv.titulo }}</h4>
+                <p>{{ serv.desc }}</p>
+              </div>
+            </article>
+          </div>
+        </section>
+        
+        <section id="proyectos-section" class="portfolio">
+          <div class="portfolio-heading">
+            <h2 class="titulo">MIS TRABAJOS</h2>
+            <div class="divider"></div>
+          </div>
+          <div class="filtros">
+            <button v-for="cat in categorias" :key="cat" @click="filtroActual = cat" :class="['btn-filtro', { activo: filtroActual === cat }]"><span>{{ cat }}</span></button>
+          </div>
+          <div class="trabajo__grupo">
+            <template v-if="loading">
+              <skeleton-card v-for="n in 3" :key="n"></skeleton-card>
+            </template>
+            <template v-else>
+              <project-card v-for="(proyecto, index) in proyectosFiltrados" :key="proyecto.id" :proyecto="proyecto" @open-modal="openModal(index, proyectosFiltrados)"></project-card>
+            </template>
+          </div>
+        </section>
+
+        <section id="certificados-section" class="portfolio">
+          <div class="portfolio-heading">
+            <h2 class="titulo">CERTIFICADOS Y DIPLOMAS</h2>
+            <div class="divider"></div>
+          </div>
+          <div class="trabajo__grupo">
+            <article v-for="(cert, index) in certificados" :key="cert.titulo" class="trabajo__articulo certificado__articulo animate__animated animate__fadeIn">
+              <div class="trabajo__articulo__div" @click="openModal(index, certificados)" style="cursor: zoom-in"><img :src="cert.img" :alt="cert.titulo"></div>
+              <figcaption>{{ cert.titulo }}</figcaption>
+            </article>
+          </div>
+        </section>
+
+        <section id="contacto-section" class="portfolio">
+          <div class="portfolio-heading">
+            <h2 class="titulo">CONTACTO</h2>
+            <div class="divider"></div>
+          </div>
+
+          <div class="info-content animate__animated animate__fadeIn" style="text-align: center; margin: 0 auto 40px; max-width: 700px;">
+            <p style="color: var(--muted); font-size: 0.95rem;">Si tienes una propuesta de proyecto, alguna consulta técnica o simplemente quieres saludar, estaré encantado de escucharte. Puedes contactarme directamente a través de mis redes sociales y canales oficiales.</p>
+          </div>
+          
+          <div class="contact-grid animate__animated animate__fadeIn">
+            <a href="https://wa.me/51921676408?text=Hola%20Joao,%20he%20visto%20tu%20portafolio%20y%20me%20gustaría%20contactarte." target="_blank" class="contact-item whatsapp-pulse">
+              <div class="contact-icon-wrapper">
+                <i class="fab fa-whatsapp"></i>
+              </div>
+              <h3>WhatsApp</h3>
+              <p>+51 921676408</p>
+            </a>
+            <a href="mailto:joaocisnerosmaldonado@gmail.com" class="contact-item">
+              <div class="contact-icon-wrapper">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <h3>Email</h3>
+              <p>joaocisnerosmaldonado@gmail.com</p>
+            </a>
+            <div class="contact-item">
+              <div class="contact-icon-wrapper">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <h3>Ubicación</h3>
+              <p>Huamanga, Ayacucho</p>
+            </div>
+            <a href="https://www.facebook.com/joao.cisnerosmaldonado" target="_blank" class="contact-item">
+              <div class="contact-icon-wrapper">
+                <i class="fab fa-facebook-f"></i>
+              </div>
+              <h3>Facebook</h3>
+              <p>Joao Cisneros Maldonado</p>
+            </a>
+            <a href="https://github.com/joaocisneros" target="_blank" class="contact-item">
+              <div class="contact-icon-wrapper">
+                <i class="fab fa-github"></i>
+              </div>
+              <h3>GitHub</h3>
+              <p>joaocisneros</p>
+            </a>
+            <a href="https://www.linkedin.com/in/joao-cisneros-maldonado" target="_blank" class="contact-item">
+              <div class="contact-icon-wrapper">
+                <i class="fab fa-linkedin-in"></i>
+              </div>
+              <h3>LinkedIn</h3>
+              <p>Joao Cisneros Maldonado</p>
+            </a>
+          </div>
+
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p class="copyright">© 2023 Joao Cisneros Maldonado — Ingeniero de Sistemas de Información</p>
+      </footer>
+    </div>
+
+    <!-- Modal de Imagen (Lightbox) -->
+    <transition name="fade">
+      <div v-if="selectedImg" class="modal-overlay" @click.self="closeModal">
+        <button class="modal-close" @click="closeModal"><i class="fas fa-times"></i></button>
+        <button class="modal-nav prev" @click="prevModal"><i class="fas fa-chevron-left"></i></button>
+        <img :src="selectedImg" :key="selectedImg" class="modal-img animate__animated animate__zoomIn">
+        <button class="modal-nav next" @click="nextModal"><i class="fas fa-chevron-right"></i></button>
+      </div>
+    </transition>
+
+    <!-- Botón Volver Arriba -->
+    <transition name="fade">
+      <button v-if="showScrollTop" class="btn-scroll-top" @click="scrollToTop" title="Volver arriba">
+        <i class="fas fa-chevron-up"></i>
+      </button>
+    </transition>
+
+    <!-- Notificación Toast -->
+    <transition name="fade">
+      <div v-if="showToast" class="toast-notification">
+        <i class="fas fa-check-circle"></i>
+        <span>{{ toastMessage }}</span>
+      </div>
+    </transition>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script src="vue/main.js"></script>
+  <script src="loadSw.js"></script>
+</body>

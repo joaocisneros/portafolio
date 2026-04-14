@@ -1,0 +1,42 @@
+[
+    { 
+        "id": 1, 
+        "nombre": "SISTEMA DE VENTAS", 
+        "categoria": "PHP",
+        "descripcion": "Desarrollo de un sistema de ventas. Tecnologias empleadas (PHP, Laravel, MySQL)",
+        "imagen": "img/ventas01.png",
+        "link": "#"
+    },
+    { 
+        "id": 2, 
+        "nombre": "SISTEMA DE VENTAS EN JAVA", 
+        "categoria": "Java",
+        "descripcion": "Desarrollo de un sistema-escritorio de ventas. Tecnologias empleadas (Java, MySQL)",
+        "imagen": "img/ventas02.png",
+        "link": "#"
+    },
+    { 
+        "id": 3, 
+        "nombre": "SISTEMA PARA COLEGIO", 
+        "categoria": "Diseño",
+        "descripcion": "Desarrollo de un sistema para colegio. Tecnologias Docentes - Alumnos",
+        "imagen": "img/colegio01.png",
+        "link": "#"
+    },
+    { 
+        "id": 4, 
+        "nombre": "CONTROL DE ACCESO", 
+        "categoria": "PHP",
+        "descripcion": "Sistema para la gestión de cuentas, accesos y permisos de usuarios en plataformas tecnológicas.",
+        "imagen": "img/controldeacceso.png",
+        "link": "#"
+    },
+    { 
+        "id": 5, 
+        "nombre": "MI TIENDA EN LÍNEA", 
+        "categoria": "PHP",
+        "descripcion": "Desarrollo de una plataforma de comercio electrónico (E-commerce) con gestión de inventario.",
+        "imagen": "img/tiendaenlinea.png",
+        "link": "#"
+    }
+]
