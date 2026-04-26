@@ -3,46 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joao Cisneros | Portafolio Profesional</title>
-    <meta name="description" content="Portafolio profesional de Joao Cisneros Maldonado - Especialista en Desarrollo Web y Soporte TI.">
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Joao Cisneros Maldonado | Portafolio Profesional</title>
+    <meta name="description" content="Joao Cisneros Maldonado, desarrollador web y fundador de Cytios Systems. Portafolio profesional con experiencia en sistemas, soporte TI y soluciones digitales.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 
     <meta name="theme-color" content="#0d1117" />
-    <link rel="shortcut icon" type="image/png" href="img/logo01.jpg">
-    <link rel="manifest" href="./manifest.json">
+    <link rel="shortcut icon" type="image/png" href="img/logo01.png?v=20260426">
+    <link rel="manifest" href="./manifest.json?v=20260426">
 
-    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/estilos.css?v=20260426">
     <script src="https://kit.fontawesome.com/03a89292db.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
 <body>
   <div id="app">
-    <!-- Contenedor principal con clase dinámica para Modo Oscuro -->
-    <div :class="['main-wrapper', { 'dark': isDarkMode }]">
+    <div class="main-wrapper">
       <header>
         <nav class="navbar">
           <a href="#hero-section" class="brand" @click="menuActive = false">
-            <img src="img/logo01.jpg" alt="Logo" class="logo" width="40">
+            <img src="img/logo01.png" alt="Logo de Cytios Systems" class="logo" width="40">
+            <span class="brand-copy">
+              <strong class="brand-name">Joao Cisneros Maldonado</strong>
+              <small class="brand-role">Fundador de Cytios Systems</small>
+            </span>
           </a>
           <div class="nav-controls">
-            <div class="modo-toggle" @click="isDarkMode = !isDarkMode">
-              <i :class="isDarkMode ? 'fas fa-sun' : 'fas fa-moon'"></i>
-            </div>
             <div class="icono_menu" @click="menuActive = !menuActive">
               <i :class="menuActive ? 'fas fa-times' : 'fas fa-bars'"></i>
             </div>
           </div>
           <ul class="menu" :class="{ 'menu__show': menuActive }">
             <li><a class="menu__item" :class="{ 'activo': activeSection === 'hero-section' }" href="#hero-section" @click="menuActive = false"><span>Inicio</span></a></li>
-            <li><a class="menu__item" :class="{ 'activo': activeSection === 'sobre-mi' }" href="#sobre-mi" @click="menuActive = false"><span>Sobre Mí</span></a></li>
-            <li><a class="menu__item" :class="{ 'activo': activeSection === 'trayectoria' }" href="#trayectoria" @click="menuActive = false"><span>Trayectoria</span></a></li>
-            <li><a class="menu__item" :class="{ 'activo': activeSection === 'tecnologias-section' }" href="#tecnologias-section" @click="menuActive = false"><span>Habilidades</span></a></li>
-            <li><a class="menu__item" :class="{ 'activo': activeSection === 'servicios-section' }" href="#servicios-section" @click="menuActive = false"><span>Soporte</span></a></li>
-            <li><a class="menu__item" :class="{ 'activo': activeSection === 'proyectos-section' }" href="#proyectos-section" @click="menuActive = false"><span>Portafolio</span></a></li>
-            <li><a class="menu__item" :class="{ 'activo': activeSection === 'certificados-section' }" href="#certificados-section" @click="menuActive = false"><span>Certificados</span></a></li>
+            <li><a class="menu__item" :class="{ 'activo': activeSection === 'servicios-section' }" href="#servicios-section" @click="menuActive = false"><span>Servicios</span></a></li>
+            <li><a class="menu__item" :class="{ 'activo': activeSection === 'proyectos-section' }" href="#proyectos-section" @click="menuActive = false"><span>Proyectos</span></a></li>
+            <li><a class="menu__item" :class="{ 'activo': activeSection === 'sobre-mi' }" href="#sobre-mi" @click="menuActive = false"><span>Sobre mi</span></a></li>
             <li><a class="menu__item" :class="{ 'activo': activeSection === 'contacto-section' }" href="#contacto-section" @click="menuActive = false"><span>Contacto</span></a></li>
           </ul>
         </nav>
@@ -51,12 +51,21 @@
       <main class="contenedor-global">
         <section id="hero-section" class="main animate__animated animate__fadeIn">
           <div class="info-content">
-              <h1>Joao Cisneros Maldonado</h1>
-              <h2><span>Ingeniero de Sistemas</span></h2>
+              <p class="hero-kicker">Profesional Tecnico en Computacion e Informatica</p>
+              <h1>
+                <span class="hero-name-line">Joao Cisneros</span>
+                <span class="hero-name-line hero-name-line--last">Maldonado</span>
+              </h1>
+              <h2>Desarrollador web y fundador de <strong>Cytios Systems</strong></h2>
               <section>
-                <strong>Profesional Técnico en Computación e Informática</strong><br>
-                Técnico Titulado en Computación e Informática y Egresado de Ingeniería de Sistemas por La Pontificia. Especialista en gestión de datos y seguridad de la información, con trayectoria optimizando procesos tecnológicos y garantizando la integridad digital. Soy un profesional autodidacta, apasionado por la innovación y la resolución de problemas complejos.
+                <strong>Profesional Tecnico en Computacion e Informatica.</strong><br>
+                Tecnico Titulado en Computacion e Informatica y Egresado de Ingenieria de Sistemas por La Pontificia. Especialista en gestion de datos y seguridad de la informacion, con trayectoria optimizando procesos tecnologicos y garantizando la integridad digital. Soy un profesional autodidacta, apasionado por la innovacion y la resolucion de problemas complejos.
               </section>
+              <ul class="hero-points">
+                <li>Desarrollo web</li>
+                <li>Gestion de datos</li>
+                <li>Soporte tecnologico</li>
+              </ul>
               <div class="more animate__animated animate__fadeInUp animate__delay-1s">
                 <a href="CV/curriculum-Joaocisnerosmaldonado_Actual.pdf" 
                    class="more__download" 
@@ -70,25 +79,72 @@
                     <span>Preparando...</span> <i class="fas fa-circle-notch fa-spin"></i>
                   </template>
                 </a>
-                <a target="_blank" href="https://wa.me/51921676408?text=Hola%20Joao,%20he%20visto%20tu%20portafolio%20y%20me%20gustaría%20contactarte." class="telef"><i class="fab fa-whatsapp"></i> +51 921676408</a>
+                <a target="_blank" href="https://wa.me/51921676408?text=Hola%20Joao,%20quiero%20informaci%C3%B3n%20sobre%20tus%20servicios." class="btn-outline">
+                  <span>WhatsApp</span> <i class="fab fa-whatsapp"></i>
+                </a>
               </div>
           </div>
-          <img src="img/foto.png" alt="Joao Cisneros">
+          <img src="img/foto.png" alt="Joao Cisneros Maldonado" class="hero-profile-visual">
+        </section>
+
+        <section id="servicios-section" class="portfolio">
+          <div class="portfolio-heading">
+            <h2 class="titulo">SERVICIOS</h2>
+            <div class="divider"></div>
+            <p class="section-copy">Servicios enfocados en desarrollo, soporte y soluciones digitales para resolver necesidades reales con criterio tecnico.</p>
+          </div>
+          <div class="trabajo__grupo wrapper">
+            <article v-for="serv in servicios" :key="serv.titulo" class="service-card-modern animate__animated animate__fadeIn">
+              <div class="service-img-container">
+                <img :src="serv.img" :alt="serv.titulo" loading="lazy">
+              </div>
+              <div class="service-content">
+                <h4>{{ serv.titulo }}</h4>
+                <p>{{ serv.desc }}</p>
+              </div>
+            </article>
+          </div>
+        </section>
+        
+        <section id="proyectos-section" class="portfolio">
+          <div class="portfolio-heading">
+            <h2 class="titulo">PROYECTOS</h2>
+            <div class="divider"></div>
+            <p class="section-copy">Proyectos que reflejan mi experiencia construyendo soluciones utiles, funcionales y alineadas a objetivos concretos.</p>
+          </div>
+          <div class="filtros">
+            <button v-for="cat in categorias" :key="cat" @click="filtroActual = cat" :class="['btn-filtro', { activo: filtroActual === cat }]"><span>{{ cat }}</span></button>
+          </div>
+          <div class="trabajo__grupo">
+            <template v-if="loading">
+              <skeleton-card v-for="n in 3" :key="n"></skeleton-card>
+            </template>
+            <template v-else>
+              <project-card v-for="(proyecto, index) in proyectosFiltrados" :key="proyecto.id" :proyecto="proyecto" @open-modal="openModal(index, proyectosFiltrados)"></project-card>
+            </template>
+          </div>
         </section>
 
         <section id="sobre-mi" class="portfolio">
           <div class="portfolio-heading">
-            <h2 class="titulo">SOBRE MÍ</h2>
+            <h2 class="titulo">SOBRE MI</h2>
             <div class="divider"></div>
+            <p class="section-copy">Conoce mejor mi perfil profesional, mi enfoque de trabajo y la experiencia que respalda cada proyecto.</p>
           </div>
           <div class="sobre-mi-grid wrapper animate__animated animate__fadeIn">
             <div class="sobre-mi-info">
               <p>
-                Especialista con formación técnica sólida y perfil de Ingeniero, enfocado en la administración eficiente de servicios tecnológicos y el blindaje de la seguridad de la información empresarial. Mi experiencia se sustenta en la modernización de infraestructuras digitales y la implementación de soluciones de soporte de alto nivel que impulsan la continuidad operativa.
+                Soy Joao Cisneros Maldonado, fundador de <strong>Cytios Systems</strong>, especializado en desarrollo de sistemas, soporte TI y seguridad de la informacion. Ayudo a negocios e instituciones a operar con mayor orden, eficiencia y confianza mediante soluciones tecnologicas alineadas a sus necesidades.
               </p>
-              <p style="margin-top: 15px;">
-                Como egresado de <strong>Ingeniería de Sistemas de Información</strong>, integro una visión arquitectónica estratégica con una ejecución técnica precisa. Destaco por mi capacidad de autoaprendizaje continuo en nuevas tecnologías y mi compromiso con la excelencia operativa, siempre alineado a los objetivos estratégicos de la organización.
+              <p>
+                Mi formacion tecnica en Computacion e Informatica, complementada con estudios en Ingenieria de Sistemas de Informacion, me permite analizar procesos, disenar soluciones practicas y ejecutar mejoras sostenibles con un enfoque funcional y estrategico.
               </p>
+              <p class="brand-note">
+                A traves de Cytios Systems respaldo cada proyecto con una identidad profesional, manteniendo un trato cercano, compromiso con los resultados y una orientacion constante a la mejora continua.
+              </p>
+              <div class="about-actions">
+                <a href="#proyectos-section" class="btn-outline">Ver proyectos <i class="fas fa-arrow-right"></i></a>
+              </div>
             </div>
             <div class="sobre-mi-idiomas">
               <div v-for="idioma in idiomas" :key="idioma.nombre" class="idioma-card">
@@ -109,8 +165,9 @@
 
         <section id="trayectoria" class="portfolio">
           <div class="portfolio-heading">
-            <h2 class="titulo">TRAYECTORIA</h2>
+            <h2 class="titulo">TRAYECTORIA Y FORMACION</h2>
             <div class="divider"></div>
+            <p class="section-copy">Experiencia profesional y formacion academica que respaldan el trabajo tecnico de la marca.</p>
           </div>
           <div class="timeline-container wrapper animate__animated animate__fadeIn">
             <div class="timeline-column">
@@ -128,7 +185,7 @@
               </div>
             </div>
             <div class="timeline-column">
-              <h3 class="timeline-title"><i class="fas fa-graduation-cap"></i> Formación Académica</h3>
+              <h3 class="timeline-title"><i class="fas fa-graduation-cap"></i> Formacion Academica</h3>
               <div class="timeline">
                 <div v-for="(item, index) in formacion" :key="item.institucion" class="timeline-item">
                   <div class="timeline-dot academic"></div>
@@ -148,10 +205,10 @@
         </section>
 
         <section id="tecnologias-section" class="portfolio">
-          <span class="section-number"></span>
           <div class="portfolio-heading">
             <h2 class="titulo">TECNOLOGIAS</h2>
             <div class="divider"></div>
+            <p class="section-copy">Herramientas y tecnologias que utilizo para construir, mantener y mejorar soluciones digitales.</p>
           </div>
           <div class="trabajo__grupo wrapper">
             <div v-for="tech in tecnologias" :key="tech.nombre" class="tecnologia__div animate__animated animate__zoomIn">
@@ -161,46 +218,11 @@
           </div>
         </section>
 
-        <section id="servicios-section" class="portfolio">
-          <div class="portfolio-heading">
-            <h2 class="titulo">MARKETING DIGITAL - SOPORTE</h2>
-            <div class="divider"></div>
-          </div>
-          <div class="trabajo__grupo wrapper">
-            <article v-for="serv in servicios" :key="serv.titulo" class="service-card-modern animate__animated animate__fadeIn">
-              <div class="service-img-container">
-                <img :src="serv.img" :alt="serv.titulo" loading="lazy">
-              </div>
-              <div class="service-content">
-                <h4>{{ serv.titulo }}</h4>
-                <p>{{ serv.desc }}</p>
-              </div>
-            </article>
-          </div>
-        </section>
-        
-        <section id="proyectos-section" class="portfolio">
-          <div class="portfolio-heading">
-            <h2 class="titulo">MIS TRABAJOS</h2>
-            <div class="divider"></div>
-          </div>
-          <div class="filtros">
-            <button v-for="cat in categorias" :key="cat" @click="filtroActual = cat" :class="['btn-filtro', { activo: filtroActual === cat }]"><span>{{ cat }}</span></button>
-          </div>
-          <div class="trabajo__grupo">
-            <template v-if="loading">
-              <skeleton-card v-for="n in 3" :key="n"></skeleton-card>
-            </template>
-            <template v-else>
-              <project-card v-for="(proyecto, index) in proyectosFiltrados" :key="proyecto.id" :proyecto="proyecto" @open-modal="openModal(index, proyectosFiltrados)"></project-card>
-            </template>
-          </div>
-        </section>
-
         <section id="certificados-section" class="portfolio">
           <div class="portfolio-heading">
-            <h2 class="titulo">CERTIFICADOS Y DIPLOMAS</h2>
+            <h2 class="titulo">CERTIFICADOS</h2>
             <div class="divider"></div>
+            <p class="section-copy">Formacion complementaria que fortalece la calidad tecnica y la mejora continua.</p>
           </div>
           <div class="trabajo__grupo">
             <article v-for="(cert, index) in certificados" :key="cert.titulo" class="trabajo__articulo certificado__articulo animate__animated animate__fadeIn">
@@ -214,14 +236,11 @@
           <div class="portfolio-heading">
             <h2 class="titulo">CONTACTO</h2>
             <div class="divider"></div>
-          </div>
-
-          <div class="info-content animate__animated animate__fadeIn" style="text-align: center; margin: 0 auto 40px; max-width: 700px;">
-            <p style="color: var(--muted); font-size: 0.95rem;">Si tienes una propuesta de proyecto, alguna consulta técnica o simplemente quieres saludar, estaré encantado de escucharte. Puedes contactarme directamente a través de mis redes sociales y canales oficiales.</p>
+            <p class="section-copy">Si necesitas un sistema, soporte o una solucion digital para tu negocio, conversemos directamente.</p>
           </div>
           
           <div class="contact-grid animate__animated animate__fadeIn">
-            <a href="https://wa.me/51921676408?text=Hola%20Joao,%20he%20visto%20tu%20portafolio%20y%20me%20gustaría%20contactarte." target="_blank" class="contact-item whatsapp-pulse">
+            <a href="https://wa.me/51921676408?text=Hola%20Joao,%20quiero%20informaci%C3%B3n%20sobre%20tus%20servicios." target="_blank" class="contact-item whatsapp-pulse">
               <div class="contact-icon-wrapper">
                 <i class="fab fa-whatsapp"></i>
               </div>
@@ -239,7 +258,7 @@
               <div class="contact-icon-wrapper">
                 <i class="fas fa-map-marker-alt"></i>
               </div>
-              <h3>Ubicación</h3>
+              <h3>Ubicacion</h3>
               <p>Huamanga, Ayacucho</p>
             </div>
             <a href="https://www.facebook.com/joao.cisnerosmaldonado" target="_blank" class="contact-item">
@@ -264,16 +283,14 @@
               <p>Joao Cisneros Maldonado</p>
             </a>
           </div>
-
         </section>
       </main>
 
       <footer class="footer">
-        <p class="copyright">© 2023 Joao Cisneros Maldonado — Ingeniero de Sistemas de Información</p>
+        <p class="copyright">&copy; 2026 Joao Cisneros Maldonado | Fundador de Cytios Systems | Desarrollo y soluciones tecnologicas</p>
       </footer>
     </div>
 
-    <!-- Modal de Imagen (Lightbox) -->
     <transition name="fade">
       <div v-if="selectedImg" class="modal-overlay" @click.self="closeModal">
         <button class="modal-close" @click="closeModal"><i class="fas fa-times"></i></button>
@@ -283,14 +300,12 @@
       </div>
     </transition>
 
-    <!-- Botón Volver Arriba -->
     <transition name="fade">
       <button v-if="showScrollTop" class="btn-scroll-top" @click="scrollToTop" title="Volver arriba">
         <i class="fas fa-chevron-up"></i>
       </button>
     </transition>
 
-    <!-- Notificación Toast -->
     <transition name="fade">
       <div v-if="showToast" class="toast-notification">
         <i class="fas fa-check-circle"></i>
@@ -299,8 +314,9 @@
     </transition>
   </div>
 
-  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="vendor/vue.global.prod.js?v=20260426"></script>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-  <script src="vue/main.js"></script>
-  <script src="loadSw.js"></script>
+  <script src="vue/main.js?v=20260426"></script>
+  <script src="loadSw.js?v=20260426"></script>
 </body>
+</html>
