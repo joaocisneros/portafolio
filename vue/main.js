@@ -18,8 +18,6 @@ const ProjectCard = {
                     loading="lazy"
                     width="320"
                     height="200"
-                    @click="$emit('open-modal')"
-                    style="cursor: zoom-in"
                 >
                 <span class="category-badge">{{ proyecto.categoria }}</span>
             </div>
@@ -60,12 +58,7 @@ const app = createApp({
             menuActive: false,
             isDownloading: false,
             activeSection: 'hero-section',
-            selectedImg: null,
-            showToast: false,
-            toastMessage: '',
             showScrollTop: false,
-            currentModalList: [],
-            currentIndex: 0,
             filtroActual: 'Todos',
             categorias: ['Todos', 'PHP', 'Java', 'Diseño'],
             loading: true,
@@ -162,8 +155,6 @@ const app = createApp({
                 tempLink.click();
                 document.body.removeChild(tempLink);
 
-                this.triggerToast('Descarga iniciada');
-
                 if (typeof confetti === 'function') {
                     confetti({
                         particleCount: 150,
@@ -174,42 +165,12 @@ const app = createApp({
                 }
             }, 1000);
         },
-        triggerToast(message) {
-            this.toastMessage = message;
-            this.showToast = true;
-            setTimeout(() => {
-                this.showToast = false;
-            }, 3000);
-        },
         handleScroll() {
             this.showScrollTop = window.scrollY > 400;
         },
         scrollToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         },
-        openModal(index, list) {
-            this.currentIndex = index;
-            this.currentModalList = list;
-            this.updateSelectedImg();
-            document.body.style.overflow = 'hidden';
-        },
-        closeModal() {
-            this.selectedImg = null;
-            this.currentModalList = [];
-            document.body.style.overflow = 'auto';
-        },
-        nextModal() {
-            this.currentIndex = (this.currentIndex + 1) % this.currentModalList.length;
-            this.updateSelectedImg();
-        },
-        prevModal() {
-            this.currentIndex = (this.currentIndex - 1 + this.currentModalList.length) % this.currentModalList.length;
-            this.updateSelectedImg();
-        },
-        updateSelectedImg() {
-            const item = this.currentModalList[this.currentIndex];
-            this.selectedImg = item.imagen || item.img;
-        }
     },
     watch: {
         activeSection() {

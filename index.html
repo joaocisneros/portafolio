@@ -139,7 +139,7 @@
             </template>
             <template v-else>
               <template v-if="proyectosFiltrados.length">
-                <project-card v-for="(proyecto, index) in proyectosFiltrados" :key="proyecto.id" :proyecto="proyecto" @open-modal="openModal(index, proyectosFiltrados)"></project-card>
+                <project-card v-for="(proyecto, index) in proyectosFiltrados" :key="proyecto.id" :proyecto="proyecto"></project-card>
               </template>
               <div v-else class="empty-state">
                 <i class="fas fa-folder-open"></i>
@@ -218,7 +218,7 @@
                     <h4>{{ item.titulo }}</h4>
                     <h5>{{ item.institucion }}</h5>
                     <p>{{ item.estado }}</p>
-                    <button v-if="item.img" class="btn-view-cert" @click="openModal(index, formacion)">
+                    <button v-if="item.img" class="btn-view-cert">
                       <i class="fas fa-certificate"></i> Ver Certificado
                     </button>
                   </div>
@@ -251,7 +251,7 @@
           </div>
           <div class="trabajo__grupo">
             <article v-for="(cert, index) in certificados" :key="cert.titulo" class="trabajo__articulo certificado__articulo animate__animated animate__fadeIn">
-              <div class="trabajo__articulo__div" @click="openModal(index, certificados)" style="cursor: zoom-in"><img :src="cert.img" :alt="cert.titulo"></div>
+              <div class="trabajo__articulo__div"><img :src="cert.img" :alt="cert.titulo"></div>
               <figcaption>{{ cert.titulo }}</figcaption>
             </article>
           </div>
@@ -316,14 +316,6 @@
       </footer>
     </div>
 
-    <transition name="fade">
-      <div v-if="selectedImg" class="modal-overlay" @click.self="closeModal">
-        <button class="modal-close" @click="closeModal"><i class="fas fa-times"></i></button>
-        <button class="modal-nav prev" @click="prevModal"><i class="fas fa-chevron-left"></i></button>
-        <img :src="selectedImg" :key="selectedImg" class="modal-img animate__animated animate__zoomIn">
-        <button class="modal-nav next" @click="nextModal"><i class="fas fa-chevron-right"></i></button>
-      </div>
-    </transition>
 
     <transition name="fade">
       <button v-if="showScrollTop" class="btn-scroll-top" @click="scrollToTop" title="Volver arriba">
@@ -331,12 +323,6 @@
       </button>
     </transition>
 
-    <transition name="fade">
-      <div v-if="showToast" class="toast-notification">
-        <i class="fas fa-check-circle"></i>
-        <span>{{ toastMessage }}</span>
-      </div>
-    </transition>
   </div>
 
   <script src="vendor/vue.global.prod.js?v=20260426"></script>

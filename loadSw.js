@@ -1,53 +1,7 @@
-const CACHE_CLEANUP_FLAG = 'portfolio-cache-cleanup-v20260426';
-
-async function unregisterExistingServiceWorkers() {
-    if (!('serviceWorker' in navigator)) return false;
-
-    const registrations = await navigator.serviceWorker.getRegistrations();
-    if (!registrations.length) return false;
-
-    await Promise.all(registrations.map((registration) => registration.unregister()));
-    return true;
-}
-
-async function clearBrowserCaches() {
-    if (!('caches' in window)) return false;
-
-    const cacheNames = await caches.keys();
-    if (!cacheNames.length) return false;
-
-    await Promise.all(cacheNames.map((cacheName) => caches.delete(cacheName)));
-    return true;
-}
-
-async function cleanupLegacyCaching() {
-    try {
-        const [removedWorkers, clearedCaches] = await Promise.all([
-            unregisterExistingServiceWorkers(),
-            clearBrowserCaches()
-        ]);
-
-        const hadChanges = removedWorkers || clearedCaches;
-        const alreadyReloaded = sessionStorage.getItem(CACHE_CLEANUP_FLAG) === 'done';
-
-        if (hadChanges && !alreadyReloaded) {
-            sessionStorage.setItem(CACHE_CLEANUP_FLAG, 'done');
-            window.location.reload();
-            return;
-        }
-
-        sessionStorage.setItem(CACHE_CLEANUP_FLAG, 'done');
-    } catch (error) {
-        console.warn('No se pudo completar la limpieza de cache antigua.', error);
-    }
-}
+const CACHE_CLEANUP_FLAG = 'portfolio-cache-cleanup-done';
 
 window.addEventListener('load', () => {
-    cleanupLegacyCaching();
-
-    const buttonAdd = document.querySelector('#buttonAdd');
-    if (!buttonAdd) return;
-
+    // PWA install prompt
     let deferredPrompt = null;
 
     window.addEventListener('beforeinstallprompt', (event) => {
@@ -55,18 +9,27 @@ window.addEventListener('load', () => {
         deferredPrompt = event;
     });
 
-    buttonAdd.addEventListener('click', async () => {
-        if (!deferredPrompt) return;
+    const buttonAdd = document.querySelector('#buttonAdd');
+    if (buttonAdd) {
+        buttonAdd.addEventListener('click', async () => {
+            if (!deferredPrompt) return;
+            deferredPrompt.prompt();
+            await deferredPrompt.userChoice;
+            deferredPrompt = null;
+        });
+    }
 
-        deferredPrompt.prompt();
-        const choiceResult = await deferredPrompt.userChoice;
+    // Legacy cache cleanup — runs once, then skips
+    if (sessionStorage.getItem(CACHE_CLEANUP_FLAG)) return;
 
-        if (choiceResult.outcome === 'accepted') {
-            console.log('Acepto la instalacion');
-        } else {
-            console.log('Rechazo la instalacion');
-        }
-
-        deferredPrompt = null;
+    Promise.all([
+        navigator.serviceWorker?.getRegistrations()
+            .then(regs => Promise.all(regs.map(r => r.unregister())))
+            .catch(() => []),
+        caches?.keys()
+            .then(names => Promise.all(names.map(n => caches.delete(n))))
+            .catch(() => [])
+    ]).then(() => {
+        sessionStorage.setItem(CACHE_CLEANUP_FLAG, '1');
     });
 });

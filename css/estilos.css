@@ -874,50 +874,6 @@ figcaption {
   word-break: break-all;
 }
 
-/* ═══════════════ MODAL LIGHTBOX ═══════════════ */
-.modal-overlay {
-  position: fixed; inset: 0;
-  background: rgba(13, 17, 23, 0.95);
-  backdrop-filter: blur(8px);
-  z-index: 2000;
-  display: flex; align-items: center; justify-content: center;
-  padding: 20px;
-}
-
-.modal-img {
-  max-width: 90%; max-height: 85vh;
-  border-radius: var(--radius);
-  box-shadow: 0 0 50px rgba(0,0,0,0.8), 0 0 0 1px var(--border);
-}
-
-.modal-close {
-  position: absolute; top: 30px; right: 30px;
-  background: var(--bg2); border: 1px solid var(--border);
-  color: var(--white); width: 50px; height: 50px;
-  border-radius: 50%; cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.2rem; transition: all 0.3s;
-}
-.modal-close:hover { background: var(--emerald); color: var(--bg); transform: rotate(90deg); }
-
-.modal-nav {
-  position: absolute; top: 50%; transform: translateY(-50%);
-  background: rgba(22, 27, 34, 0.5); border: 1px solid var(--border);
-  color: var(--white); width: 60px; height: 60px;
-  border-radius: 50%; cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.5rem; transition: all 0.3s;
-  z-index: 2010;
-}
-.modal-nav:hover { background: var(--bg2); border-color: var(--emerald); color: var(--emerald); }
-.modal-nav.prev { left: 40px; }
-.modal-nav.next { right: 40px; }
-
-@media (max-width: 768px) {
-  .modal-nav { width: 45px; height: 45px; font-size: 1.1rem; }
-  .modal-nav.prev { left: 10px; }
-  .modal-nav.next { right: 10px; }
-}
 
 /* ═══════════════ BOTÓN VOLVER ARRIBA ═══════════════ */
 .btn-scroll-top {
@@ -1031,27 +987,3 @@ figcaption {
   .brand-copy { display: none; }
 }
 
-/* ═══════════════ TOAST NOTIFICATION ═══════════════ */
-.toast-notification {
-  position: fixed;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--bg2);
-  border: 1px solid var(--emerald);
-  color: var(--white);
-  padding: 12px 24px;
-  border-radius: 30px;
-  z-index: 3000;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-  font-size: 0.9rem;
-  font-weight: 600;
-  backdrop-filter: blur(10px);
-}
-.toast-notification i {
-  color: var(--emerald);
-  font-size: 1.1rem;
-}
