@@ -27,7 +27,7 @@ const ProjectCard = {
                 <h3 class="proyecto-titulo">{{ proyecto.nombre }}</h3>
                 <p class="proyecto-desc">{{ proyecto.descripcion }}</p>
                 <div class="card-footer">
-                    <a v-if="proyecto.link && proyecto.link !== '#'" :href="proyecto.link" class="btn-project" target="_blank">
+                    <a v-if="proyecto.link && proyecto.link !== '#'" :href="proyecto.link" class="btn-project" target="_blank" rel="noopener noreferrer">
                         Ver Proyecto <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
@@ -71,16 +71,22 @@ const app = createApp({
             loading: true,
             proyectos: [],
             tecnologias: [
-                { nombre: 'HTML', img: 'img/html5.svg' },
-                { nombre: 'CSS', img: 'img/css.svg' },
+                { nombre: 'HTML5', img: 'img/html5.svg' },
+                { nombre: 'CSS3', img: 'img/css.svg' },
                 { nombre: 'BOOTSTRAP', img: 'img/bootstrap.svg' },
-                { nombre: 'PHP', img: 'img/php.svg' },
-                { nombre: 'LARAVEL', img: 'img/laravel.png' },
+                { nombre: 'PHP 8', img: 'img/php.svg' },
+                { nombre: 'LARAVEL 11', img: 'img/laravel.png' },
                 { nombre: 'MYSQL', img: 'img/mysql.svg' },
                 { nombre: 'PHOTOSHOP', img: 'img/photoshop.svg' },
                 { nombre: 'COREL DRAW', img: 'img/corel.png' },
                 { nombre: 'GIT', img: 'img/git.svg' },
                 { nombre: 'GITHUB', img: 'img/github.svg' },
+                { nombre: 'JAVASCRIPT', img: 'img/js.svg' },
+                { nombre: 'REACT', icono: 'fab fa-react' },
+                { nombre: 'TYPESCRIPT', icono: 'fas fa-code' },
+                { nombre: 'MYSQL WORKBENCH', icono: 'fas fa-database' },
+                { nombre: 'BACKEND', icono: 'fas fa-server' },
+                { nombre: 'FULL STACK', icono: 'fas fa-layer-group' },
                 { nombre: 'OFIMATICA', img: 'img/office.png' }
             ],
             servicios: [

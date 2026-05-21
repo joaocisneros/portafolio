@@ -8,6 +8,20 @@
     <meta http-equiv="Expires" content="0">
     <title>Joao Cisneros Maldonado | Portafolio Profesional</title>
     <meta name="description" content="Joao Cisneros Maldonado, desarrollador web y fundador de Cytios Systems. Portafolio profesional con experiencia en sistemas, soporte TI y soluciones digitales.">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Joao Cisneros Maldonado | Portafolio Profesional">
+    <meta property="og:description" content="Desarrollador web y fundador de Cytios Systems. Experiencia en sistemas, soporte TI y soluciones digitales.">
+    <meta property="og:image" content="img/foto.png">
+    <meta property="og:url" content="https://joaocisneros.github.io/portafolio-Joao/">
+    <meta property="og:locale" content="es_PE">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Joao Cisneros Maldonado | Portafolio Profesional">
+    <meta name="twitter:description" content="Desarrollador web y fundador de Cytios Systems. Experiencia en sistemas, soporte TI y soluciones digitales.">
+    <meta name="twitter:image" content="img/foto.png">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -67,9 +81,9 @@
                 <li>Soporte tecnologico</li>
               </ul>
               <div class="more animate__animated animate__fadeInUp animate__delay-1s">
-                <a href="CV/curriculum-Joaocisnerosmaldonado_Actual.pdf" 
-                   class="more__download" 
-                   download="CV_Joao_Cisneros_Maldonado.pdf" 
+                <a href="CV/curriculum-Joaocisnerosmaldonado_Actual.pdf"
+                   class="more__download"
+                   download="CV_Joao_Cisneros_Maldonado.pdf"
                    @click.prevent="handleDownloadCV($event)"
                    :style="{ pointerEvents: isDownloading ? 'none' : 'auto' }">
                   <template v-if="!isDownloading">
@@ -79,12 +93,16 @@
                     <span>Preparando...</span> <i class="fas fa-circle-notch fa-spin"></i>
                   </template>
                 </a>
-                <a target="_blank" href="https://wa.me/51921676408?text=Hola%20Joao,%20quiero%20informaci%C3%B3n%20sobre%20tus%20servicios." class="btn-outline">
+                <a target="_blank" rel="noopener noreferrer" href="https://wa.me/51921676408?text=Hola%20Joao,%20quiero%20informaci%C3%B3n%20sobre%20tus%20servicios." class="btn-outline">
                   <span>WhatsApp</span> <i class="fab fa-whatsapp"></i>
                 </a>
               </div>
           </div>
           <img src="img/foto.png" alt="Joao Cisneros Maldonado" class="hero-profile-visual">
+          <a href="#servicios-section" class="scroll-indicator">
+            <span>Scroll</span>
+            <i class="fas fa-chevron-down"></i>
+          </a>
         </section>
 
         <section id="servicios-section" class="portfolio">
@@ -120,7 +138,13 @@
               <skeleton-card v-for="n in 3" :key="n"></skeleton-card>
             </template>
             <template v-else>
-              <project-card v-for="(proyecto, index) in proyectosFiltrados" :key="proyecto.id" :proyecto="proyecto" @open-modal="openModal(index, proyectosFiltrados)"></project-card>
+              <template v-if="proyectosFiltrados.length">
+                <project-card v-for="(proyecto, index) in proyectosFiltrados" :key="proyecto.id" :proyecto="proyecto" @open-modal="openModal(index, proyectosFiltrados)"></project-card>
+              </template>
+              <div v-else class="empty-state">
+                <i class="fas fa-folder-open"></i>
+                <p>No hay proyectos en esta categoria.</p>
+              </div>
             </template>
           </div>
         </section>
@@ -212,7 +236,8 @@
           </div>
           <div class="trabajo__grupo wrapper">
             <div v-for="tech in tecnologias" :key="tech.nombre" class="tecnologia__div animate__animated animate__zoomIn">
-              <img :src="tech.img" :alt="tech.nombre" class="tech" loading="lazy">
+              <img v-if="tech.img" :src="tech.img" :alt="tech.nombre" class="tech" loading="lazy">
+              <i v-else :class="tech.icono" class="tech-icon"></i>
               <div class="tecnologia__name">{{ tech.nombre }}</div>
             </div>
           </div>
@@ -240,7 +265,7 @@
           </div>
           
           <div class="contact-grid animate__animated animate__fadeIn">
-            <a href="https://wa.me/51921676408?text=Hola%20Joao,%20quiero%20informaci%C3%B3n%20sobre%20tus%20servicios." target="_blank" class="contact-item whatsapp-pulse">
+            <a href="https://wa.me/51921676408?text=Hola%20Joao,%20quiero%20informaci%C3%B3n%20sobre%20tus%20servicios." target="_blank" rel="noopener noreferrer" class="contact-item whatsapp-pulse">
               <div class="contact-icon-wrapper">
                 <i class="fab fa-whatsapp"></i>
               </div>
@@ -261,21 +286,21 @@
               <h3>Ubicacion</h3>
               <p>Huamanga, Ayacucho</p>
             </div>
-            <a href="https://www.facebook.com/joao.cisnerosmaldonado" target="_blank" class="contact-item">
+            <a href="https://www.facebook.com/joao.cisnerosmaldonado" target="_blank" rel="noopener noreferrer" class="contact-item">
               <div class="contact-icon-wrapper">
                 <i class="fab fa-facebook-f"></i>
               </div>
               <h3>Facebook</h3>
               <p>Joao Cisneros Maldonado</p>
             </a>
-            <a href="https://github.com/joaocisneros" target="_blank" class="contact-item">
+            <a href="https://github.com/joaocisneros" target="_blank" rel="noopener noreferrer" class="contact-item">
               <div class="contact-icon-wrapper">
                 <i class="fab fa-github"></i>
               </div>
               <h3>GitHub</h3>
               <p>joaocisneros</p>
             </a>
-            <a href="https://www.linkedin.com/in/joao-cisneros-maldonado" target="_blank" class="contact-item">
+            <a href="https://www.linkedin.com/in/joao-cisneros-maldonado" target="_blank" rel="noopener noreferrer" class="contact-item">
               <div class="contact-icon-wrapper">
                 <i class="fab fa-linkedin-in"></i>
               </div>
